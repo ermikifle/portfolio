@@ -34,7 +34,7 @@ function TopBar({ activeTitle = 'Desktop', menuActions = {}, onMenuAction }) {
       initial={{ opacity: 0, y: -14 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: 'easeOut' }}
-      className="mx-auto mt-4 flex h-12 w-[min(98%,96rem)] items-center justify-between rounded-2xl border border-white/20 bg-white/10 px-4 shadow-[0_16px_36px_-24px_rgba(2,6,23,0.95)] backdrop-blur-2xl"
+      className="flex h-12 w-full items-center justify-between border-b border-slate-700 bg-slate-900 px-4"
     >
       <div className="flex items-center gap-4 text-sm text-slate-200">
         <span className="font-semibold tracking-tight text-slate-100">ErmiOS</span>

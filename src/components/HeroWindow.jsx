@@ -1,51 +1,36 @@
-const actions = [
-  { label: 'View Projects', style: 'secondary' },
-  { label: 'Resume', style: 'primary' },
-  { label: 'Contact', style: 'secondary' },
-]
-
 function HeroWindow() {
   return (
-    <div className="grid h-full gap-8 p-6 sm:p-10 md:grid-cols-[14rem_1fr] md:gap-10">
-      <div className="flex items-start justify-center md:items-center">
-        <div className="relative h-36 w-36 overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-br from-indigo-500/25 via-slate-700 to-slate-900 shadow-[0_16px_40px_-26px_rgba(99,102,241,0.85)] sm:h-44 sm:w-44">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(255,255,255,0.28),transparent_42%)]" />
-          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-slate-950/45 to-transparent" />
-          <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm font-medium tracking-[0.22em] text-slate-200">
-            EK
-          </span>
-        </div>
+    <div className="flex h-full flex-col">
+      <div className="border-b border-slate-300/80 bg-slate-50 px-4 py-2 text-xs text-slate-600">
+        File Edit View Insert Format Tools
       </div>
 
-      <div className="space-y-5 text-left">
-        <div className="space-y-3">
-          <h1 className="text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">
-            Ermiyas Kifle
-          </h1>
-          <p className="text-lg text-slate-200/90">
-            Software Engineer building thoughtful digital products.
-          </p>
-          <p className="max-w-prose text-sm leading-relaxed text-slate-400 sm:text-base">
-            Focused on product design, full-stack development, and startup execution.
-          </p>
-        </div>
+      <div className="flex items-center justify-end gap-2 border-b border-slate-300/80 bg-slate-100 px-4 py-2 text-[11px] text-slate-500">
+        <span className="rounded bg-white/80 px-2 py-0.5">100%</span>
+        <span className="rounded bg-white/80 px-2 py-0.5">A</span>
+      </div>
 
-        <div className="flex flex-wrap items-center gap-3 pt-1">
-          {actions.map((action) => (
-            <button
-              key={action.label}
-              type="button"
-              className={[
-                'rounded-xl border px-4 py-2.5 text-sm font-medium transition duration-200',
-                action.style === 'primary'
-                  ? 'border-indigo-300/35 bg-indigo-500/30 text-indigo-100 shadow-[0_10px_20px_-14px_rgba(129,140,248,0.95)] hover:bg-indigo-500/40'
-                  : 'border-white/15 bg-white/5 text-slate-200 hover:bg-white/10',
-              ].join(' ')}
-            >
-              {action.label}
-            </button>
-          ))}
-        </div>
+      <div className="flex-1 overflow-y-auto p-4 sm:p-6">
+        <article className="mx-auto max-w-2xl space-y-5 rounded-sm border border-slate-200 bg-white px-8 py-10 text-left shadow-[0_12px_30px_-18px_rgba(15,23,42,0.45)] sm:px-10">
+          <h1 className="text-3xl font-semibold tracking-tight text-slate-800">About me</h1>
+          <p className="text-[15px] leading-8 text-slate-700">
+            I've always been curious about how the systems around us work, and more importantly, how they
+            could work better for people. Living in a world where technology shapes so much of our daily
+            lives, I'm motivated by the idea that thoughtful tools and ideas can make complicated things
+            simpler and more accessible.
+          </p>
+          <p className="text-[15px] leading-8 text-slate-700">
+            My journey through school, work, and different environments has shown me how powerful problem
+            solving, empathy, and persistence can be when combined. I'm someone who enjoys building,
+            learning, and questioning the way things are done, with the hope of contributing to a future
+            where technology supports people's growth, opportunities, and understanding rather than making
+            life more overwhelming.
+          </p>
+          <p className="text-[15px] leading-8 text-slate-700">
+            Outside of work, I enjoy painting and playing tennis, both remind me that creativity and
+            balance are just as important as productivity.
+          </p>
+        </article>
       </div>
     </div>
   )

@@ -65,6 +65,7 @@ function DesktopGlyph({ type }) {
 
 function DesktopIcons({ openWindow }) {
   const items = [
+    { id: 'welcome', label: 'Welcome', type: 'document' },
     { id: 'projects', label: 'Projects', type: 'folder' },
     { id: 'terminal', label: 'Terminal', type: 'terminal' },
     { id: 'experience', label: 'Experience', type: 'briefcase' },
