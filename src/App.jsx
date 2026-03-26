@@ -10,7 +10,6 @@ import WelcomeWindow from './components/WelcomeWindow'
 import TerminalWindow from './components/TerminalWindow'
 import DesktopWindow from './components/DesktopWindow'
 import DesktopIcons from './components/DesktopIcons'
-import natureWallpaper from './assets/nature-wallpaper.svg'
 
 const previewWindowIds = projectFiles.map((file) => `projectPreview-${file.id}`)
 const experiencePreviewWindowIds = experienceFiles.map((file) => `experiencePreview-${file.id}`)
@@ -216,13 +215,7 @@ function App() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-100">
-      <img
-        src={natureWallpaper}
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover"
-      />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.14)_0%,rgba(2,6,23,0.28)_62%,rgba(2,6,23,0.4)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[#008080]" />
 
       <div className="relative z-10 flex min-h-screen flex-col px-3 pb-28 sm:px-4">
         <TopBar activeTitle={activeTitle} menuActions={menuActions} onMenuAction={handleMenuAction} />
