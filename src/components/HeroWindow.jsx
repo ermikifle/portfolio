@@ -26,10 +26,14 @@ function HeroWindow() {
             where technology supports people's growth, opportunities, and understanding rather than making
             life more overwhelming.
           </p>
-          <p className="text-[15px] leading-8 text-slate-700">
-            Outside of work, I enjoy painting and playing tennis, both remind me that creativity and
-            balance are just as important as productivity.
-          </p>
+          <a
+            href="https://www.linkedin.com/in/ermi-kifle-69443a195/"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex rounded-lg border border-sky-300/55 bg-sky-500/20 px-3 py-1.5 text-sm font-medium text-sky-800 transition hover:bg-sky-500/30"
+          >
+            View LinkedIn Profile
+          </a>
         </article>
       </div>
     </div>

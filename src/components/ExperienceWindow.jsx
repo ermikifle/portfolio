@@ -1,51 +1,5 @@
 import { useState } from 'react'
-
-export const experienceFiles = [
-  {
-    id: 'apple',
-    fileName: 'Apple-Tysons-Corner.pdf',
-    modified: 'Mar 2026',
-    size: '226 KB',
-    project: 'Apple Tysons Corner',
-    location: 'Vienna, VA',
-    role: 'Technical Specialist',
-    period: 'Oct 2024 - Present',
-    details: [
-      'Diagnosed and resolved complex software and hardware issues across iOS, macOS, and Apple ecosystems.',
-      'Delivered expert technical support and personalized product setup for Apple devices, restoring functionality and ensuring a seamless user experience in high-pressure customer-facing environments.',
-      'Repaired and strengthened customer relationships by resolving complex issues with empathy, clear communication, and proactive follow-up.',
-    ],
-  },
-  {
-    id: 'msu',
-    fileName: 'MSU-Global-IDEAS-Database-Manager.pdf',
-    modified: 'Mar 2026',
-    size: '214 KB',
-    project: 'Michigan State University Global IDEAS',
-    location: 'East Lansing, MI',
-    role: 'Database Manager',
-    period: 'May 2022 - Jan 2024',
-    details: [
-      'Managed a database server of over 1,600 faculty members and updated the funding resource database, ensuring faculty had access to the latest research resources and resulting in over 40% more up-to-date information.',
-      'Leveraged Python and MySQL to automate data entry workflows, improving institute efficiency by 30%, and built web scraping tools to extract USAID data for university research projects.',
-    ],
-  },
-  {
-    id: 'autoowners',
-    fileName: 'Auto-Owners-Allied-Universal.pdf',
-    modified: 'Mar 2026',
-    size: '207 KB',
-    project: 'Auto Owners Insurance HQ / Allied Universal',
-    location: 'Lansing, MI',
-    role: 'Corporate Security Specialist',
-    period: 'Jan 2024 - Aug 2024',
-    details: [
-      'Controlled emergency technologies through regular alarm system audits and security assessments, resolving vulnerabilities.',
-      'Applied advanced security technologies and systems to monitor and protect 236,500 square feet of company property.',
-      'Achieved 100% loss prevention with no major security tool failures, resulting in high client satisfaction.',
-    ],
-  },
-]
+import { experienceFiles } from '../data/experience'
 
 function PdfIcon() {
   return (

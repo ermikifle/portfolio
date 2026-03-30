@@ -1,8 +1,8 @@
 import { useMemo, useRef, useState } from 'react'
 import TopBar from './components/TopBar'
 import HeroWindow from './components/HeroWindow'
-import ProjectsWindow, { projectFiles } from './components/ProjectsWindow'
-import ExperienceWindow, { experienceFiles } from './components/ExperienceWindow'
+import ProjectsWindow from './components/ProjectsWindow'
+import ExperienceWindow from './components/ExperienceWindow'
 import ProjectPreviewWindow from './components/ProjectPreviewWindow'
 import SkillsWindow from './components/SkillsWindow'
 import ContactWindow from './components/ContactWindow'
@@ -10,6 +10,9 @@ import WelcomeWindow from './components/WelcomeWindow'
 import TerminalWindow from './components/TerminalWindow'
 import DesktopWindow from './components/DesktopWindow'
 import DesktopIcons from './components/DesktopIcons'
+import MobileLayout from './components/MobileLayout'
+import { projectFiles } from './data/projects'
+import { experienceFiles } from './data/experience'
 
 const previewWindowIds = projectFiles.map((file) => `projectPreview-${file.id}`)
 const experiencePreviewWindowIds = experienceFiles.map((file) => `experiencePreview-${file.id}`)
@@ -217,7 +220,9 @@ function App() {
     <div className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-100">
       <div className="pointer-events-none absolute inset-0 bg-[#008080]" />
 
-      <div className="relative z-10 flex min-h-screen flex-col px-3 pb-28 sm:px-4">
+      <MobileLayout />
+
+      <div className="relative z-10 hidden min-h-screen flex-col px-3 pb-28 sm:px-4 md:flex">
         <TopBar activeTitle={activeTitle} menuActions={menuActions} onMenuAction={handleMenuAction} />
 
         <main ref={desktopRef} className="relative flex w-full flex-1 items-center justify-center py-8 sm:py-12">
