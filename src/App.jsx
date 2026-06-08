@@ -6,7 +6,7 @@ import ExperienceWindow from './components/ExperienceWindow'
 import ProjectPreviewWindow from './components/ProjectPreviewWindow'
 import SkillsWindow from './components/SkillsWindow'
 import ContactWindow from './components/ContactWindow'
-import WelcomeWindow from './components/WelcomeWindow'
+import BlogWindow from './components/BlogWindow'
 import TerminalWindow from './components/TerminalWindow'
 import DesktopWindow from './components/DesktopWindow'
 import DesktopIcons from './components/DesktopIcons'
@@ -16,27 +16,21 @@ import { experienceFiles } from './data/experience'
 
 const previewWindowIds = projectFiles.map((file) => `projectPreview-${file.id}`)
 const experiencePreviewWindowIds = experienceFiles.map((file) => `experiencePreview-${file.id}`)
-const coreWindowIds = ['home', 'welcome', 'projects', 'terminal', 'experience', 'skills', 'contact']
+const coreWindowIds = ['home', 'projects', 'terminal', 'experience', 'skills', 'contact', 'blog']
 
 const windowConfig = {
   home: {
-    title: 'home',
+    title: 'about',
     icon: 'home',
     tint: 'from-sky-300 to-blue-500',
     className:
-      'left-1/2 top-[50%] h-[36rem] w-[min(92%,60rem)] min-h-[30rem] max-h-[calc(100%-7rem)] min-w-[20rem] max-w-[calc(100%-1.5rem)] -translate-x-1/2 -translate-y-1/2',
-  },
-  welcome: {
-    title: 'welcome',
-    icon: 'home',
-    tint: 'from-violet-300 to-fuchsia-500',
-    className: 'left-[8%] top-[16%] h-[17rem] w-[min(30rem,90vw)] min-w-[22rem]',
+      'left-1/2 top-[50%] h-[38rem] w-[min(92%,56rem)] min-h-[30rem] max-h-[calc(100%-7rem)] min-w-[20rem] max-w-[calc(100%-1.5rem)] -translate-x-1/2 -translate-y-1/2',
   },
   projects: {
     title: 'projects',
     icon: 'folder',
     tint: 'from-indigo-300 to-violet-500',
-    className: 'left-[5%] top-[12%] h-[34rem] w-[min(48rem,94vw)] min-w-[36rem]',
+    className: 'left-[5%] top-[10%] h-[36rem] w-[min(50rem,94vw)] min-w-[36rem]',
   },
   terminal: {
     title: 'terminal',
@@ -48,42 +42,48 @@ const windowConfig = {
     title: 'experience',
     icon: 'briefcase',
     tint: 'from-amber-300 to-orange-500',
-    className: 'right-[5%] top-[10%] h-[34rem] w-[min(44rem,92vw)] min-w-[34rem]',
+    className: 'right-[5%] top-[10%] h-[36rem] w-[min(48rem,92vw)] min-w-[34rem]',
   },
   skills: {
-    title: 'skills',
+    title: 'skills.txt',
     icon: 'spark',
     tint: 'from-cyan-300 to-sky-500',
-    className: 'left-[12%] top-[14%] h-[32rem] w-[min(42rem,92vw)] min-w-[30rem]',
+    className: 'left-[12%] top-[14%] h-[34rem] w-[min(44rem,92vw)] min-w-[30rem]',
   },
   contact: {
     title: 'contact',
     icon: 'mail',
     tint: 'from-pink-300 to-rose-500',
-    className: 'right-[4%] top-[10%] h-[34rem] w-[min(44rem,92vw)] min-w-[32rem]',
+    className: 'right-[4%] top-[10%] h-[28rem] w-[min(38rem,92vw)] min-w-[28rem]',
+  },
+  blog: {
+    title: 'blog',
+    icon: 'blog',
+    tint: 'from-sky-300 to-blue-500',
+    className: 'left-[8%] top-[14%] h-[26rem] w-[min(36rem,92vw)] min-w-[28rem]',
   },
 }
 
 const initialOpenState = {
   home: true,
-  welcome: true,
   projects: false,
   terminal: false,
   experience: false,
   skills: false,
   contact: false,
+  blog: false,
   ...Object.fromEntries(previewWindowIds.map((id) => [id, false])),
   ...Object.fromEntries(experiencePreviewWindowIds.map((id) => [id, false])),
 }
 
 const initialMinimizedState = {
   home: false,
-  welcome: false,
   projects: false,
   terminal: false,
   experience: false,
   skills: false,
   contact: false,
+  blog: false,
   ...Object.fromEntries(previewWindowIds.map((id) => [id, false])),
   ...Object.fromEntries(experiencePreviewWindowIds.map((id) => [id, false])),
 }
@@ -96,8 +96,8 @@ const initialOrder = [
   ...experiencePreviewWindowIds,
   'skills',
   'contact',
+  'blog',
   'home',
-  'welcome',
 ]
 
 function App() {
@@ -127,7 +127,7 @@ function App() {
   const closeAll = () => {
     setIsOpen(initialOpenState)
     setIsMinimized(initialMinimizedState)
-    bringToFront('welcome')
+    bringToFront('home')
   }
 
   const openAll = () => {
@@ -148,7 +148,7 @@ function App() {
         title: 'preview',
         icon: 'folder',
         tint: 'from-violet-300 to-fuchsia-500',
-        className: 'left-[18%] top-[16%] h-[32rem] w-[min(44rem,90vw)] min-w-[30rem]',
+        className: 'left-[18%] top-[16%] h-[34rem] w-[min(46rem,90vw)] min-w-[30rem]',
       }
     }
     if (id.startsWith('experiencePreview-')) {
@@ -156,7 +156,7 @@ function App() {
         title: 'preview',
         icon: 'briefcase',
         tint: 'from-amber-300 to-orange-500',
-        className: 'left-[20%] top-[14%] h-[32rem] w-[min(44rem,90vw)] min-w-[30rem]',
+        className: 'left-[20%] top-[14%] h-[34rem] w-[min(46rem,90vw)] min-w-[30rem]',
       }
     }
     return null
@@ -188,7 +188,7 @@ function App() {
         { id: 'open-all', label: 'Open All Windows' },
         { id: 'close-all', label: 'Close Extra Windows' },
       ],
-      Edit: [{ id: 'focus-home', label: 'Focus Home' }],
+      Edit: [{ id: 'focus-home', label: 'Focus About' }],
       View: [
         { id: 'open-terminal', label: 'Open Terminal' },
         { id: 'open-projects', label: 'Open Projects' },
@@ -197,10 +197,11 @@ function App() {
         { id: 'toggle-experience', label: isOpen.experience ? 'Close Experience' : 'Open Experience' },
         { id: 'toggle-skills', label: isOpen.skills ? 'Close Skills' : 'Open Skills' },
         { id: 'toggle-contact', label: isOpen.contact ? 'Close Contact' : 'Open Contact' },
+        { id: 'toggle-blog', label: isOpen.blog ? 'Close Blog' : 'Open Blog' },
       ],
       Help: [{ id: 'open-contact', label: 'Contact Ermiyas' }],
     }),
-    [isOpen.experience, isOpen.skills, isOpen.contact],
+    [isOpen.experience, isOpen.skills, isOpen.contact, isOpen.blog],
   )
 
   const handleMenuAction = (actionId) => {
@@ -214,15 +215,19 @@ function App() {
       isOpen.experience ? closeWindow('experience') : openWindow('experience')
     if (actionId === 'toggle-skills') isOpen.skills ? closeWindow('skills') : openWindow('skills')
     if (actionId === 'toggle-contact') isOpen.contact ? closeWindow('contact') : openWindow('contact')
+    if (actionId === 'toggle-blog') isOpen.blog ? closeWindow('blog') : openWindow('blog')
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-100">
-      <div className="pointer-events-none absolute inset-0 bg-[#008080]" />
+    <>
+      <div className="relative z-20 md:hidden">
+        <MobileLayout />
+      </div>
 
-      <MobileLayout />
+      <div className="relative hidden min-h-screen overflow-hidden bg-slate-950 text-slate-100 md:block">
+        <div className="pointer-events-none absolute inset-0 bg-[#008080]" />
 
-      <div className="relative z-10 hidden min-h-screen flex-col px-3 pb-28 sm:px-4 md:flex">
+        <div className="relative z-10 flex min-h-screen flex-col px-3 pb-28 sm:px-4">
         <TopBar activeTitle={activeTitle} menuActions={menuActions} onMenuAction={handleMenuAction} />
 
         <main ref={desktopRef} className="relative flex w-full flex-1 items-center justify-center py-8 sm:py-12">
@@ -242,7 +247,7 @@ function App() {
             return (
               <DesktopWindow
                 key={id}
-                title={previewFile ? previewFile.fileName : experiencePreviewFile ? experiencePreviewFile.fileName : windowMeta.title}
+                title={previewFile ? previewFile.project : experiencePreviewFile ? experiencePreviewFile.project : windowMeta.title}
                 className={[
                   windowMeta.className,
                   id !== 'home' ? 'hidden md:block' : '',
@@ -256,8 +261,6 @@ function App() {
                 dragConstraints={desktopRef}
               >
                 {id === 'home' && <HeroWindow />}
-
-                {id === 'welcome' && <WelcomeWindow />}
 
                 {id === 'projects' && (
                   <ProjectsWindow onOpenPreview={openProjectPreview} />
@@ -286,13 +289,18 @@ function App() {
                 {id === 'contact' && (
                   <ContactWindow />
                 )}
+
+                {id === 'blog' && (
+                  <BlogWindow />
+                )}
               </DesktopWindow>
             )
           })}
         </main>
 
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

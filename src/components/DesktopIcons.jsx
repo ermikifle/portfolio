@@ -11,19 +11,18 @@ function DesktopGlyph({ type }) {
     viewBox: '0 0 24 24',
   }
 
-  if (type === 'folder') {
+  if (type === 'home') {
     return (
       <svg {...baseProps}>
-        <path d="M3.5 8.5A2.5 2.5 0 0 1 6 6h4l2 2h6a2.5 2.5 0 0 1 2.5 2.5v6A2.5 2.5 0 0 1 18 19H6a2.5 2.5 0 0 1-2.5-2.5z" />
+        <path d="M3.5 10.5 12 3.5l8.5 7v9.5a1 1 0 0 1-1 1H15v-5h-6v5H4.5a1 1 0 0 1-1-1z" />
       </svg>
     )
   }
 
-  if (type === 'terminal') {
+  if (type === 'folder') {
     return (
       <svg {...baseProps}>
-        <rect x="3.5" y="5" width="17" height="14" rx="2.5" />
-        <path d="m8 10 2 2-2 2m4 0h4" />
+        <path d="M3.5 8.5A2.5 2.5 0 0 1 6 6h4l2 2h6a2.5 2.5 0 0 1 2.5 2.5v6A2.5 2.5 0 0 1 18 19H6a2.5 2.5 0 0 1-2.5-2.5z" />
       </svg>
     )
   }
@@ -37,6 +36,23 @@ function DesktopGlyph({ type }) {
     )
   }
 
+  if (type === 'spark') {
+    return (
+      <svg {...baseProps}>
+        <path d="M13 2 4.5 13.5H12L11 22l8.5-11.5H12z" />
+      </svg>
+    )
+  }
+
+  if (type === 'terminal') {
+    return (
+      <svg {...baseProps}>
+        <rect x="3.5" y="5" width="17" height="14" rx="2.5" />
+        <path d="m8 10 2 2-2 2m4 0h4" />
+      </svg>
+    )
+  }
+
   if (type === 'mail') {
     return (
       <svg {...baseProps}>
@@ -46,11 +62,10 @@ function DesktopGlyph({ type }) {
     )
   }
 
-  if (type === 'document') {
+  if (type === 'blog') {
     return (
       <svg {...baseProps}>
-        <path d="M7 3.5h7l4 4v13H7a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2Z" />
-        <path d="M14 3.5V8h4" />
+        <path d="M4 4h16v2H4zM4 9h10v2H4zM4 14h12v2H4zM4 19h8v2H4z" fill="currentColor" stroke="none" />
       </svg>
     )
   }
@@ -65,12 +80,13 @@ function DesktopGlyph({ type }) {
 
 function DesktopIcons({ openWindow }) {
   const items = [
-    { id: 'welcome', label: 'Welcome', type: 'document' },
+    { id: 'home', label: 'About', type: 'home' },
     { id: 'projects', label: 'Projects', type: 'folder' },
-    { id: 'terminal', label: 'Terminal', type: 'terminal' },
     { id: 'experience', label: 'Experience', type: 'briefcase' },
+    { id: 'blog', label: 'Blog', type: 'blog' },
+    { id: 'skills', label: 'Skills', type: 'spark' },
+    { id: 'terminal', label: 'Terminal', type: 'terminal' },
     { id: 'contact', label: 'Contact', type: 'mail' },
-    { id: 'skills', label: 'Skills.txt', type: 'document' },
   ]
 
   return (
